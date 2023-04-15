@@ -4,13 +4,16 @@ Package Name : smart-ordering
 
 # How to start a server
 서버 실행 방법
-- 터미널 창에서 아래 명령어 실행
-  ```shell
-  cd server
-  npm install
-  npm start
-  ```
-- `npm start` = `nodemon ./bin/www.js`
+1. npm 설치
+2. nodemon 설치
+    - `npm install nodemon -g`
+3. 터미널 창에서 아래 명령어 실행
+    ```shell
+    cd server
+    npm install
+    npm start
+    ```
+    - `npm start` = `nodemon ./bin/www.js`
 
 [접속주소](http://localhost:3000)
 

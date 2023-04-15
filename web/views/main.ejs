@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/menu-section.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <script defer src="dist/js/bundle.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <button class="btn-home trans">
+          <i class="fas fa-home"></i>
+        </button>
+        <h1 class="home"><span>Smart</span> <span>Ordering</span></h1>
+      </div>
+      <nav class="main-nav">
+        <ul class="menu-tab list">
+          <li id="coffee" class="tab-list trans btn-active">커피</li>
+          <li id="drink" class="tab-list trans">음료</li>
+          <li id="desert" class="tab-list trans">디저트</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="main__container">
+        <ul class="menu-list">
+          <li id="iceAmericano" class="menu-item">
+            <figure id="iceAmericano">
+              <img id="iceAmericano" class="menu-img" src="https://cdn.shopify.com/s/files/1/0273/4535/4826/products/coldbrew_69e25680-9a16-41ed-ad47-e42d7b201b6a.jpg?v=1587042356">
+              <figcaption id="iceAmericano" class="menu-title">아이스 아메리카노</figcaption>
+              <span class="menu-price">2500원</span>
+            </figure>        
+          </li>
+        </ul>
+        <div class="btn-group"></div>
+        <div class="menu-modal-container">
+          <ul class="modal">
+            <!-- <li class="modal-item">
+            <figure>
+              <img class="modal-img"
+                src="https://cdn.shopify.com/s/files/1/0273/4535/4826/products/coldbrew_69e25680-9a16-41ed-ad47-e42d7b201b6a.jpg?v=1587042356">
+              <div>
+                <figcaption class="modal-title">아이스 아메리카노</figcaption>
+                <span class="modal-price">2000원</span>
+              </div>
+            </figure>
+          </li>
+          <li class="modal-item">
+            <button class="btn btn-size-up"><i class="fa fa-coffee" aria-hidden="true"></i> 사이즈 업</button>
+            <span class="size-up-price">1000원</span>
+            <button class="btn btn-addshot"><i class="fa fa-coffee" aria-hidden="true"></i> 샷 추가</button>
+            <span class="size-up-price">1000원</span>
+          </li>
+          <li class="modal-item">
+            <button class="btn-order">주문 담기</button>
+            <button class="btn-close">취소</button>
+          </li> -->
+          </ul>
+        </div>
+      </div>
+    </main>
+    <!-- footer 주문 내역 영역 -->
+    <footer class="footer">
+      <!--
+      <div class="remaining-time-container">
+        남은시간 <span class="remaining-time"></span>초
+      </div>
+      -->
+      <ul class="order-list">
+        <!-- `<li id="${id}" class="order-item">
+        <i class="remove-item far fa-times-circle"></i>
+        <span class="item-name">${menuName}</span>
+        <span class="item-price">${price}원</span>
+        </li>` -->
+      </ul>
+      <div class="selected-item-container">
+        선택한 상품 <span class="selected-item-num"></span>
+      </div>
+      <button class="order-btn order-btn-invalid">
+        <span class="total-price"></span> 결제하기
+      </button>
+      <button class="delete-all-items">전체삭제</button>
+      <div class='next_btn'></div>
+
+      <!-- 결제 내역 모달 영역 -->
+      <div class="pay-modal-container modal-invisible">
+        <div class="pay-modal">
+          <h3 class="pay-modal-heading">주문리스트</h3>
+          <p class="pay-modal-text"><span>주문리스트</span>를 확인해 주세요.</p>
+
+          <div class="pay-list-container">
+            <div class="pay-list-head">
+              <span>메뉴</span>
+              <span>가격</span>
+            </div>
+
+            <ul class="pay-list">
+              <!-- `<li id="${id}" class="pay-item">
+            <span class="item-name">${item}</span>
+            <span><span class="item-price">${price}</span>원</span>
+          </li>` -->
+            </ul>
+          </div>
+
+          <div class="pay-result">
+            <span>총 수량 <span class="total-item-num"></span></span>
+            <span>총 결제금액 <span class="total-item-price"></span></span>
+          </div>
+          <div>
+            <button class="pay-result-check">확 인</button>
+            <button class="pay-result-cancel">취 소</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
