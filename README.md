@@ -3,12 +3,22 @@
 Package Name : smart-ordering
 
 # How to start a server
+Source 다운
+  1. Frontend Source 코드 받아서 폴더명을 client로 변경
+  2. Backend Source 코드 받아서 폴더명을 server로 변경
+  - ※ client와 server가 같은 폴더에 위치
+  - ![](res/README/스크린샷%202023-04-15%20오후%207.44.18.png)
+
 서버 실행 방법
-```shell
-npm install
-npm start
-```
+- 터미널 창에서 아래 명령어 실행
+  ```shell
+  npm install
+  npm start
+  ```
 - `npm start` = `nodemon ./bin/www.js`
+
+[접속주소](http://localhost:3000)
+
 
 # Packages
 - express
