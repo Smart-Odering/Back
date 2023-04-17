@@ -1,7 +1,7 @@
 "use strict";
 
-const { log } = require("winston");
 const logger = require("../config/logger");
+const Menu = require("../models/Menu");
 
 const output = {
     home : (req, res) => {
@@ -10,6 +10,15 @@ const output = {
     }
 };
 
+const process = {
+    home : async (req, res) => {
+        console.log(req.body);
+        const response = await Menu.getMenuByCategory(req.body);
+        console.log(response);
+    }
+}
+
 module.exports = {
     output,
+    process,
 };
