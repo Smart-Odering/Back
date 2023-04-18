@@ -3,10 +3,9 @@
 const express = require("express");
 const router = express.Router();
 
-const ctrl = require("./home");
+const ctrl = require("./home.ctrl");
 
-router.get("/", ctrl.output.home);
-
-router.post("/home", ctrl.process.home);
+router.get("/", ctrl.output.main);
+router.get("/home", ctrl.output.home);
 
 module.exports = router;
