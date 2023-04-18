@@ -1,15 +1,13 @@
 const { createLogger, transports, format} = require("winston");
 const { combine, timestamp, label, simple, colorize, printf } = format;
+const util = require("util");
 
-const printFormat = printf(({ timestamp, label, level, message }) => {
-    return `${timestamp} [${label}] ${level} : ${message}`
+const printFormat = printf(({ timestamp, level, message }) => {
+    return `${timestamp} [${level}] : ${util.format('%o',message)}`
 });
 
 const printLogFormat = {
     file: combine(
-        label({
-            label: "woorimit"
-        }),
         // colorize(),
         timestamp({
             format: "YYYY-MM-DD HH:mm:dd"

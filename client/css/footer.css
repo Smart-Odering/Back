@@ -12,7 +12,7 @@
     grid-auto-rows: 300px;
     text-align: center;
   }
-  
+
   .order-list {
     grid-column: 1/5;
     grid-row: 1/4;
@@ -22,24 +22,24 @@
     border: 0;
     border-radius: 10px;
   }
-  
+
   .order-list::-webkit-scrollbar {
     width: 5px;
   }
-  
+
   .order-list::-webkit-scrollbar-thumb {
     background-color: #6b6d74;
     border-radius: 10px;
     background-clip: padding-box;
     border: 2px solid transparent;
   }
-  
+
   .order-list::-webkit-scrollbar-track {
     background-color: grey;
     border-radius: 10px;
     box-shadow: inset 0px 0px 5px white;
   }
-  
+
   .order-item {
     display: flex;
     justify-content: space-between;
@@ -55,14 +55,14 @@
     font-weight: bold;
     color: #3a3939;
   }
-  
+
   .remove-item {
     display: block;
     line-height: 1.5;
     cursor: pointer;
     color: #3a3939;
   }
-  
+
   .remaining-time-container {
     grid-column: 5/6;
     grid-row: 1/2;
@@ -71,12 +71,12 @@
     font-size: 1.6rem;
     font-weight: bold;
   }
-  
+
   .remaining-time {
     font-size: 2.5rem;
     color: rgb(3, 102, 53);
   }
-  
+
   .delete-all-items {
     grid-column: 6/7;
     grid-row: 1/2;
@@ -88,7 +88,7 @@
     font-weight: bold;
     color: #fff;
   }
-  
+
   .selected-item-container {
     grid-column: 5/7;
     grid-row: 2/3;
@@ -100,11 +100,11 @@
     font-size: 1.6rem;
     font-weight: bold;
   }
-  
+
   .selected-item-num {
     color: rgb(3, 102, 53);
   }
-  
+
   .order-btn {
     grid-column: 5/7;
     grid-row: 3/4;
@@ -115,20 +115,20 @@
     font-weight: bold;
     color: #fff;
   }
-  
+
   .order-btn-valid {
     background: rgb(3, 102, 53);
   }
-  
+
   .order-btn-invalid {
     border: 1px solid #333;
     background: gray;
   }
-  
+
   .total-price {
     font-size: 2rem;
   }
-  
+
   .pay-modal-container {
     position: fixed;
     justify-content: center;
@@ -141,17 +141,17 @@
     transition: 0.3s;
     display: flex;
   }
-  
+
   .modal-visible {
     opacity: 1;
     z-index: 99;
   }
-  
+
   .modal-invisible {
     opacity: 0;
     z-index: -10;
   }
-  
+
   .pay-modal {
     transform: translate(0, -100%);
     display: flex;
@@ -163,20 +163,20 @@
     border: 2px solid gray;
     border-radius: 10px;
   }
-  
+
   .pay-modal-heading {
     font-size: 2rem;
     font-weight: bold;
     color: rgb(3, 102, 53);
     margin: 15px;
   }
-  
+
   .pay-modal-text {
     font-size: 1.4rem;
     font-weight: bold;
     margin: 20px;
   }
-  
+
   .pay-list-head {
     display: flex;
     justify-content: space-around;
@@ -186,7 +186,7 @@
     font-size: 1.4rem;
     font-weight: bold;
   }
-  
+
   .pay-list {
     background: #fff;
     min-height: 200px;
@@ -194,24 +194,24 @@
     border-radius: 10px;
     overflow-y: auto;
   }
-  
+
   .pay-list::-webkit-scrollbar {
     width: 5px;
   }
-  
+
   .pay-list::-webkit-scrollbar-thumb {
     background-color: #6b6d74;
     border-radius: 10px;
     background-clip: padding-box;
     border: 2px solid transparent;
   }
-  
+
   .pay-list::-webkit-scrollbar-track {
     background-color: grey;
     border-radius: 10px;
     box-shadow: inset 0px 0px 5px white;
   }
-  
+
   .pay-item {
     display: flex;
     justify-content: space-around;
@@ -226,7 +226,7 @@
     font-weight: bold;
     color: #3a3939;
   }
-  
+
   .pay-result {
     display: flex;
     justify-content: space-around;
@@ -236,15 +236,15 @@
     font-size: 1.4rem;
     font-weight: bold;
   }
-  
+
   .total-item-num {
     color: rgb(3, 102, 53);
   }
-  
+
   .total-item-price {
     color: blueviolet;
   }
-  
+
   .pay-result-check {
     background: rgb(3, 102, 53);
     margin: 10px;
@@ -258,7 +258,7 @@
     font-weight: bold;
     letter-spacing: 15px;
   }
-  
+
   .pay-result-cancel {
     background: #645c5c;
     margin: 10px;
@@ -272,17 +272,16 @@
     font-weight: bold;
     letter-spacing: 15px;
   }
-  
+
   div.next_btn {
     width:180px;
     height:167px;
     background-image: url("https://i.ibb.co/QXFqFwK/Kakao-Talk-20230405-211901487-removebg-preview.png");
     }
-    
+
     div.next_btn:hover {
     width:180px;
     height:167px;
     background-image: url("https://i.ibb.co/6BDpfhv/Kakao-Talk-20230405-211844132-removebg-preview.png");
     }
-    
-  
+

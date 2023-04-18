@@ -1,19 +1,36 @@
 "use strict";
 
+const { resolveInclude } = require("ejs");
 const db = require("../config/db");
+const logger = require("../config/logger");
 
 // 쿼리
-const getCategoryQuery = "SELECT * FROM Menu WHERE catergory = ?;"
-
+const getCategoryQuery = "SELECT id FROM Category WHERE name = ?;"
+const getMenuQuery = "SELECT * FROM Menu WHERE category_id = ?;"
 class Menu{
-    static async getMenuByCategory(categoryId)
-    {
-        return new Promise((resolve, reject) =>{
-            const query = getCategoryQuery;
-            db.query(query, [categoryId], (err, data) => {
-                if (err) reject(err);
-                else resolve(data);
-            });
-        });
-    }
+	static async getMenuByCategory(categoryId)
+	{
+		return new Promise((resolve, reject) =>{
+			const query = getMenuQuery;
+			const execSql = db.query(query, [categoryId], (err, data) => {
+				if (err) reject(err);
+				else resolve(data);
+			});
+			logger.info(execSql.sql);
+		});
+	}
+
+	static async getCategoryId(catergoryName)
+	{
+		return new Promise((resolve, reject) => {
+			const query = getCategoryQuery;
+			const execSql = db.query(query, [catergoryName], (err, data) => {
+				if (err) reject(err);
+				else resolve(data[0].id);
+			});
+			logger.info(execSql.sql);
+		})
+	}
 }
+
+module.exports = Menu;
