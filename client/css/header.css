@@ -1,200 +1,200 @@
 .start-window {
-    position: absolute;
-    z-index: 99;
-    left: -10px;
-    width: 1000px;
-    height: 1000px;
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-size: contain;
-    font-size: 10rem;
-    font-weight: bold;
-    background-color: white;
-    user-select: none;
-  }
-  
-  .header {
-    position: relative;
-    width: 960px;
-    height: 140px;
-    margin: 0 auto;
-    padding: 0 15px;
-    background-color: rgb(3, 102, 53);
-    color: #fff;
-    text-align: center;
-  }
-  
-  .header-container {
-    display: grid;
-    margin: 0 10px;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 70px;
-  }
-  
-  .trans {
-    background-color: transparent;
-    color: #ffffff;
-    cursor: pointer;
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
-  
-  .header button {
-    box-shadow: none;
-    border: 0;
-  }
-  
-  .btn-home {
-    cursor: pointer;
-    grid-column: 1/2;
-    padding-right: 70px;
-    font-size: 3rem;
-  }
-  
-  .btn-dev {
-    cursor: pointer;
-    grid-column: 5/6;
-    padding-left: 70px;
-    font-size: 3rem;
-  }
-  
-  .header i {
-    font-size: 2rem;
-  }
-  
-  .home {
-    grid-column: 2/5;
-    margin-top: 15px;
-    font-size: 2rem;
-    user-select: none;
-  }
-  
-  .menu-tab {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-  }
-  
-  .tab-list {
-    height: 50px;
-    width: 30%;
-    padding: 20px 35px;
-    border: 0;
-    border-radius: 15px 15px 0 0;
-  }
-  
-  .btn-active {
-    background-color: #eee;
-    color: #000000;
-  }
-  
-  .dev-modal-container {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vw;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    z-index: -10;
-    transition: 0.3s;
-  }
-  .dev-modal-container.active {
-    opacity: 1;
-    z-index: 99;
-  }
-  .dev-modal-container .dev-modal-text {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin: 15px 0 15px 0;
-    color: rgb(3, 102, 53);
-  }
-  .dev-modal-container .dev-modal {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 500px;
-    background: #fff;
-    border: 2px solid gray;
-    border-radius: 10px;
-    margin-bottom: 30%;
-    transform: translate(0, -150px);
-  }
-  .dev-modal-container .dev-modal .dev-modal-heading {
-    font-size: 2rem;
-    font-weight: bold;
-    color: rgb(3, 102, 53);
-    margin: 15px 0 15px 0;
-  }
-  .dev-modal-container .dev-modal .input-price {
-    width: 70px;
-  }
-  .dev-modal-container .dev-modal .dev-modal-input {
-    width: 360px;
-    color: #000000;
-    text-align: left;
-    font-weight: 700;
-    line-height: 2rem;
-    margin: 15px 0 15px 0;
-  }
-  .dev-modal-container .dev-modal .dev-modal-input span {
-    color: red;
-    font-size: 12px;
-    position: relative;
-    opacity: 0;
-  }
-  .dev-modal-container .dev-modal .dev-modal-input .is-valid span {
-    opacity: 1;
-  }
-  .dev-modal-container .dev-modal .dev-modal-input div {
-    display: flex;
-    margin: 0;
-  }
-  .dev-modal-container .dev-modal .dev-modal-input div label {
-    flex: 1;
-    font-size: 17px;
-    color: gray;
-  }
-  .dev-modal-container .dev-modal .dev-modal-input div label::after {
-    content: "*";
-    color: red;
-    margin-left: 5px;
-  }
-  .dev-modal-container .dev-modal .dev-modal-input div .dev-shot {
-    height: 30px;
-    width: 30px;
-  }
-  .dev-modal-container .dev-modal .dev-modal-input div input {
-    flex: 2 1 0;
-    outline: none;
-    padding: 5px 15px;
-    border: none;
-    border-bottom: 2px solid #aaa;
-    font-size: 18px;
-    padding: 5px;
-  }
-  .dev-modal-container .dev-modal-btn {
-    margin: 10px 0 15px 0;
-    padding-top: 20px;
-    width: 390px;
-    display: flex;
-    justify-content: space-around;
-  }
-  .dev-modal-container .dev-modal-btn button {
-    width: 100px;
-    height: 40px;
-    border: 0;
-    border-radius: 10px;
-    color: #ffffff;
-    background: rgb(3, 102, 53);
-    font-size: 25px;
-    font-weight: 700;
-  }
-  .dev-modal-container .dev-modal-btn button:disabled {
-    background: #eee;
-  }
+  position: absolute;
+  z-index: 99;
+  left: -10px;
+  width: 1000px;
+  height: 1000px;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: contain;
+  font-size: 10rem;
+  font-weight: bold;
+  background-color: white;
+  user-select: none;
+}
+
+.header {
+  position: relative;
+  width: 450px;
+  height: 130px;
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: rgb(3, 102, 53);
+  color: #fff;
+  text-align: center;
+}
+
+.header-container {
+  display: grid;
+  margin: 0 10px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 70px;
+}
+
+.trans {
+  background-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.header button {
+  box-shadow: none;
+  border: 0;
+}
+
+.btn-home {
+  cursor: pointer;
+  grid-column: 1/2;
+  padding-right: 70px;
+  font-size: 3rem;
+}
+
+.btn-dev {
+  cursor: pointer;
+  grid-column: 5/6;
+  padding-left: 70px;
+  font-size: 3rem;
+}
+
+.header i {
+  font-size: 2rem;
+}
+
+.home {
+  grid-column: 2/5;
+  margin-top: 15px;
+  font-size: 2rem;
+  user-select: none;
+}
+
+.menu-tab {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.tab-list {
+  height: 50px;
+  width: 30%;
+  padding: 20px 35px;
+  border: 0;
+  border-radius: 15px 15px 0 0;
+}
+
+.btn-active {
+  background-color: #eee;
+  color: #000000;
+}
+
+.dev-modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  z-index: -10;
+  transition: 0.3s;
+}
+.dev-modal-container.active {
+  opacity: 1;
+  z-index: 99;
+}
+.dev-modal-container .dev-modal-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 15px 0 15px 0;
+  color: rgb(3, 102, 53);
+}
+.dev-modal-container .dev-modal {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  background: #fff;
+  border: 2px solid gray;
+  border-radius: 10px;
+  margin-bottom: 30%;
+  transform: translate(0, -150px);
+}
+.dev-modal-container .dev-modal .dev-modal-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(3, 102, 53);
+  margin: 15px 0 15px 0;
+}
+.dev-modal-container .dev-modal .input-price {
+  width: 70px;
+}
+.dev-modal-container .dev-modal .dev-modal-input {
+  width: 360px;
+  color: #000000;
+  text-align: left;
+  font-weight: 700;
+  line-height: 2rem;
+  margin: 15px 0 15px 0;
+}
+.dev-modal-container .dev-modal .dev-modal-input span {
+  color: red;
+  font-size: 12px;
+  position: relative;
+  opacity: 0;
+}
+.dev-modal-container .dev-modal .dev-modal-input .is-valid span {
+  opacity: 1;
+}
+.dev-modal-container .dev-modal .dev-modal-input div {
+  display: flex;
+  margin: 0;
+}
+.dev-modal-container .dev-modal .dev-modal-input div label {
+  flex: 1;
+  font-size: 17px;
+  color: gray;
+}
+.dev-modal-container .dev-modal .dev-modal-input div label::after {
+  content: "*";
+  color: red;
+  margin-left: 5px;
+}
+.dev-modal-container .dev-modal .dev-modal-input div .dev-shot {
+  height: 30px;
+  width: 30px;
+}
+.dev-modal-container .dev-modal .dev-modal-input div input {
+  flex: 2 1 0;
+  outline: none;
+  padding: 5px 15px;
+  border: none;
+  border-bottom: 2px solid #aaa;
+  font-size: 18px;
+  padding: 5px;
+}
+.dev-modal-container .dev-modal-btn {
+  margin: 10px 0 15px 0;
+  padding-top: 20px;
+  width: 390px;
+  display: flex;
+  justify-content: space-around;
+}
+.dev-modal-container .dev-modal-btn button {
+  width: 100px;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+  color: #ffffff;
+  background: rgb(3, 102, 53);
+  font-size: 25px;
+  font-weight: 700;
+}
+.dev-modal-container .dev-modal-btn button:disabled {
+  background: #eee;
+}
