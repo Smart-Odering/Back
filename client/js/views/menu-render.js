@@ -13,5 +13,4 @@ function menuRender(data) {
     )
     .join('');
 }
-
 export default menuRender;
