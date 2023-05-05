@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/reset.css">
     <script defer="" src="dist/js/bundle.js"></script>
     <script src="/js/home.js"></script>
+    <script src="/js/modal.js"></script>
   </head>
 
   <body>
@@ -160,32 +161,6 @@
 	}
 	// ]]>
 </script>
-
-<script>
-
-  //JQUERY
-  // $(".menu-item").click(function () {
-  //   $(".menu-modal-container").addClass("active");
-  // });
-
-  // //모달 취소 누를시
-  // $(".btn-close").click(function(){
-  //   $(".menu-modal-container").removeClass("active");
-  // });
-
-  const menuList = document.querySelector('.menu-list');
-  const clossbutton = document.querySelector('.btn-close');
-
-  menuList.addEventListener('click', function(e) {
-    document.querySelector(".menu-modal-container").classList.add("active");
-  });
-
-  clossbutton.addEventListener('click', function(e) {
-    document.querySelector(".menu-modal-container").classList.remove("active");
-  });
-
-</script>
-
 </body>
 </html>
 

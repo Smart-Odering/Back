@@ -43,7 +43,7 @@ function renderHome(categoryName) {
 }
 
 function createMenuHtml(menu) {
-    console.log(menu);
+    // console.log(menu);
     document.querySelector('.menu-list').insertAdjacentHTML(
         'beforeend',
         `
