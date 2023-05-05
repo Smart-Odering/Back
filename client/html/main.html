@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="stylesheet" href="/client/css/footer.css">
     <link rel="stylesheet" href="/client/css/header.css">
@@ -121,6 +122,7 @@
       </div>
     </footer>
   <!-- Code injected by live-server -->
+<!--
 <script>
 	// <![CDATA[  <-- For SVG support
 	if ('WebSocket' in window) {
@@ -158,30 +160,18 @@
 	}
 	
 </script>
+-->
 
 <script>
-
   //JQUERY
-  // $(".menu-item").click(function () {
-  //   $(".menu-modal-container").addClass("active");  
-  // });
-
-  // //모달 취소 누를시
-  // $(".btn-close").click(function(){
-  //   $(".menu-modal-container").removeClass("active");  
-  // });
-
-  const menuList = document.querySelector('.menu-list');
-  const clossbutton = document.querySelector('.btn-close');
-
-  menuList.addEventListener('click', function(e) {
-    document.querySelector(".menu-modal-container").classList.add("active");
+  $(".menu-item").click(function () {
+     $(".menu-modal-container").addClass("active");  
   });
 
-  clossbutton.addEventListener('click', function(e) {
-    document.querySelector(".menu-modal-container").classList.remove("active");
+  //모달 취소 누를시
+  $(".btn-close").click(function(){
+     $(".menu-modal-container").removeClass("active");  
   });
-
 </script>
 
 </body>
