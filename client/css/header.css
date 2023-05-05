@@ -19,7 +19,7 @@
   height: 130px;
   margin: 0 auto;
   padding: 0 15px;
-  background-color: rgb(3, 102, 53);
+  background-color: rgb(27,60,53);
   color: #fff;
   text-align: center;
 }
@@ -110,7 +110,7 @@
   font-size: 1.4rem;
   font-weight: bold;
   margin: 15px 0 15px 0;
-  color: rgb(3, 102, 53);
+  color: rgb(18,59,55);
 }
 .dev-modal-container .dev-modal {
   padding: 30px;
@@ -128,7 +128,7 @@
 .dev-modal-container .dev-modal .dev-modal-heading {
   font-size: 2rem;
   font-weight: bold;
-  color: rgb(3, 102, 53);
+  color: rgb(27,60,53);
   margin: 15px 0 15px 0;
 }
 .dev-modal-container .dev-modal .input-price {
@@ -191,7 +191,7 @@
   border: 0;
   border-radius: 10px;
   color: #ffffff;
-  background: rgb(3, 102, 53);
+  background: rgb(27,60,53);
   font-size: 25px;
   font-weight: 700;
 }

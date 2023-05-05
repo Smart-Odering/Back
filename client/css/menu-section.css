@@ -21,7 +21,7 @@
     align-items: center;
     padding: 9px;
     box-sizing: border-box;
-    background: #fff;
+    background: rgb(27,60,53);
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -32,18 +32,18 @@
     padding-bottom: 10px;
   }
   .menu-list .menu-item figure .menu-img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   .menu-list .menu-item figure .menu-title {
     margin-top: 10px;
-    color: gray;
-    font-size: 11px;
+    color: white;
+    font-size: 13px;
     font-weight: 700;
   }
   .menu-list .menu-item figure .menu-price {
     display: block;
     margin-top: 10px;
-    color: orangered;
+    color: yellow;
     font-size: 14px;
     font-weight: 700;
   }
@@ -141,6 +141,8 @@
   }
   .menu-modal-container .modal .modal-item figure .modal-img {
     width: 40%;
+    border-radius: 70%;
+    overflow: hidden;
   }
   .menu-modal-container .modal .modal-item figure div {
     width: 50%;
