@@ -39,4 +39,17 @@ function renderHome(categoryName) {
 
 const createMenuHtml = function(menu) {
     console.log(menu);
+    document.querySelector('.menu-list').insertAdjacentHTML(
+        'beforeend',
+        `
+        <li id="menu_${menu.id}" class="menu-item">
+            <figure id="menu_${menu.id}">
+                <img id="menu_${menu.id}" class="menu-img" src="/res/${menu.image}">
+                <figcaption id="menu_${menu.id}" class="menu-title">${menu.name_kor}</figcaption>
+                <span class="menu-price">${menu.price}</span>
+            </figure>
+        </li>
+        `
+    );
+
 }
