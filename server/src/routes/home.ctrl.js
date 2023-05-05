@@ -15,12 +15,12 @@ const output = {
             const categoryId = await Menu.getCategoryId(client.category);
             logger.info(`categoryId = ${categoryId}`);
             const response = await Menu.getMenuByCategory(categoryId);
-            logger.info(`GET /home Success!`);
+            logger.info(`POST /home Success!`);
             return res.send(response);
         } catch(err) {
-            logger.error(`GET /home Response: ${err}`);
+            logger.error(`POST /home Response: ${err}`);
         }
-        
+
     }
 };
 
