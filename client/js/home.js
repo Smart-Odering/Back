@@ -1,6 +1,19 @@
 "use strict";
 
-var menu = null;
+jQuery(document).ready(function() {
+    $('.menu-tab #coffee').on("click", () => {
+        changeCategory("coffee")
+        renderHome("coffee");
+    });
+    $('.menu-tab #beverage').on("click", () => {
+        changeCategory("beverage");
+        renderHome("beverage");
+    });
+    $('.menu-tab #dessert').on("click", () => {
+        changeCategory("dessert");
+        renderHome("dessert");
+    });
+});
 
 renderHome("coffee");
 
@@ -19,25 +32,17 @@ function renderHome(categoryName) {
     })
     .then((res) => res.json())
     .then((res) => {
+        $(".menu-list").empty();
         res.forEach(element => {
             createMenuHtml(element);
         });
-        var menuList = $(".menu-list");
-        menuList.append()
-
-        // if (res.success) {
-        //     location.href = "/";
-        // } else{
-        //     if (res.err) return alert(res.err);
-        //     alert(res.msg);
-        // }
     })
     .catch((err) => {
         console.error(err);
     });
 }
 
-const createMenuHtml = function(menu) {
+function createMenuHtml(menu) {
     console.log(menu);
     document.querySelector('.menu-list').insertAdjacentHTML(
         'beforeend',
@@ -51,5 +56,11 @@ const createMenuHtml = function(menu) {
         </li>
         `
     );
+}
 
+function changeCategory(categoryName){
+    document.querySelectorAll('.tab-list').forEach(element =>{
+        element.classList.remove('btn-active');
+    });
+    document.querySelector(`#${categoryName}.tab-list`).classList.add('btn-active');
 }
