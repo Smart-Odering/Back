@@ -45,6 +45,11 @@ function renderHome(categoryName) {
             $(".modal-title").text(name);
             $(".modal-price").text(price);
             $(".menu-modal-container").addClass("active");
+            $(".btn-size-up").on("click",function(){
+                console.log("size up click")
+                price += 1000;
+                document.querySelector('.modal-price').textContent = `${price}원`;
+            });
         });
     })
     .catch((err) => {
