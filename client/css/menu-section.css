@@ -17,6 +17,7 @@
   }
   .menu-list .menu-item figure {
     width: 100%;
+    height: 137.2px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
