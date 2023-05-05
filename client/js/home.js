@@ -36,6 +36,16 @@ function renderHome(categoryName) {
         res.forEach(element => {
             createMenuHtml(element);
         });
+        $(".menu-item").on("click",function(){
+            console.log(this);
+            const imgSrc = $(`#${this.id} .menu-img`).attr("src");
+            const name = $(`#${this.id} .menu-title`).text();
+            const price = $(`#${this.id} .menu-price`).text();
+            $(".modal-img").attr("src", imgSrc);
+            $(".modal-title").text(name);
+            $(".modal-price").text(price);
+            $(".menu-modal-container").addClass("active");
+        });
     })
     .catch((err) => {
         console.error(err);
