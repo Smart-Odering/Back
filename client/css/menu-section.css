@@ -17,7 +17,7 @@
   }
   .menu-list .menu-item figure {
     width: 100%;
-    height: 137.2px;
+    height: 180px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -41,6 +41,8 @@
     color: white;
     font-size: 13px;
     font-weight: 700;
+    text-align: center;
+    word-break: normal;
   }
   .menu-list .menu-item figure .menu-price {
     display: block;
@@ -158,6 +160,8 @@
     color: gray;
     font-size: 20px;
     font-weight: 700;
+    text-align: center;
+    word-break: normal;
   }
   .menu-modal-container .modal .modal-item figure div .modal-price {
     color: orangered;
