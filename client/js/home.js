@@ -43,7 +43,7 @@ function renderHome(categoryName) {
             const price = $(`#${this.id} .menu-price`).text();
             $(".modal-img").attr("src", imgSrc);
             $(".modal-title").text(name);
-            $(".modal-price").text(price);
+            $(".modal-price").text(price+'원');
             $(".menu-modal-container").addClass("active");
             $(".btn-size-up").on("click",function(){
                 console.log("size up click")
