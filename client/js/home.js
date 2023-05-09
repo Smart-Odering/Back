@@ -1,5 +1,8 @@
 "use strict";
 
+var menuname;
+var price;
+
 jQuery(document).ready(function() {
     $('.menu-tab #coffee').on("click", () => {
         changeCategory("coffee")
@@ -39,8 +42,8 @@ function renderHome(categoryName) {
         $(".menu-item").on("click",function(){
             console.log(this);
             var imgSrc = $(`#${this.id} .menu-img`).attr("src");
-            var menuname = $(`#${this.id} .menu-title`).text();
-            var price = $(`#${this.id} .menu-price`).text();
+            menuname = $(`#${this.id} .menu-title`).text();
+            price = $(`#${this.id} .menu-price`).text();
 
             $(".modal-img").attr("src", imgSrc);
             $(".modal-title").text(menuname);
@@ -76,7 +79,7 @@ function changeCategory(categoryName){
     document.querySelector(`#${categoryName}.tab-list`).classList.add('btn-active');
 }
 
-export {
+module.exports = {
     menuname,
     price,
-}
+};
