@@ -9,6 +9,8 @@ $(function(){
     $(".modal-item .btn-close").on("click",function(){
         $(".menu-modal-container").removeClass("active");
     });
+});
+$(function(){
     $(".btn-size-up").on("click",function(){
         if(state == 0){
             $(".btn-size-up").css("background","tomato")
@@ -24,6 +26,8 @@ $(function(){
             state = 0;
         }
     });
+});
+$(function(){
     $(".btn-order").on("click",function(){
         $(".modal-title").val();
         console.log($(".modal-title").val())
