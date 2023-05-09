@@ -59,7 +59,7 @@ function renderHome(categoryName) {
                     $(".btn-size-up").css("background","")
                     totalprice = Number(price) - 1000;
                     document.querySelector('.modal-price').textContent = `${totalprice}원`;
-                    state = 1;
+                    state = 0;
                 }
                 
             });
