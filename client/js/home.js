@@ -1,8 +1,5 @@
 "use strict";
 
-var menuname;
-var price;
-
 jQuery(document).ready(function() {
     $('.menu-tab #coffee').on("click", () => {
         changeCategory("coffee")
@@ -19,6 +16,9 @@ jQuery(document).ready(function() {
 });
 
 renderHome("coffee");
+
+var menuname = null;
+var price = null;
 
 function renderHome(categoryName) {
     const req = {
@@ -79,7 +79,7 @@ function changeCategory(categoryName){
     document.querySelector(`#${categoryName}.tab-list`).classList.add('btn-active');
 }
 
-module.exports = {
+export const home = {
     menuname,
     price,
-};
+}
