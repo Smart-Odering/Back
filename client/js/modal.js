@@ -28,6 +28,7 @@ $(function(){
         $(".modal-title").val();
         console.log($(".modal-title").val())
         console.log(name)
+        console.log(price)
     });
 });
 
