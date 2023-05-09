@@ -47,7 +47,7 @@ function renderHome(categoryName) {
             $(".menu-modal-container").addClass("active");
             $(".btn-size-up").on("click",function(){
                 console.log("size up click")
-                var totalprice = price + 1000;
+                var totalprice = Number(price) + 1000;
                 document.querySelector('.modal-price').textContent = `${totalprice}원`;
             });
         });
