@@ -1,4 +1,4 @@
-import {name, price} from './home.js'
+import {menuname, price} from './home.js'
 "use strict";
 
 var totalprice = Number(price);
@@ -27,7 +27,7 @@ $(function(){
     $(".btn-order").on("click",function(){
         $(".modal-title").val();
         console.log($(".modal-title").val())
-        console.log(name)
+        console.log(menuname)
         console.log(price)
     });
 });

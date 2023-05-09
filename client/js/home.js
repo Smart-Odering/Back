@@ -39,11 +39,11 @@ function renderHome(categoryName) {
         $(".menu-item").on("click",function(){
             console.log(this);
             var imgSrc = $(`#${this.id} .menu-img`).attr("src");
-            var name = $(`#${this.id} .menu-title`).text();
+            var menuname = $(`#${this.id} .menu-title`).text();
             var price = $(`#${this.id} .menu-price`).text();
 
             $(".modal-img").attr("src", imgSrc);
-            $(".modal-title").text(name);
+            $(".modal-title").text(menuname);
             $(".modal-price").text(price+'원');
             $(".menu-modal-container").addClass("active");
         });
@@ -74,4 +74,9 @@ function changeCategory(categoryName){
         element.classList.remove('btn-active');
     });
     document.querySelector(`#${categoryName}.tab-list`).classList.add('btn-active');
+}
+
+export {
+    menuname,
+    price,
 }
