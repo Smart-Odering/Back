@@ -51,14 +51,14 @@ function renderHome(categoryName) {
                 if(state == 0){
                     console.log("size up click")
                     $(".btn-size-up").css("background","tomato")
-                    $(".modal-item").css("color","tomato")
+                    $(".modal-price").css("color","orangered")
                     totalprice += 1000;
                     document.querySelector('.modal-price').textContent = `${totalprice}원`;
                     state = 1;
                 }
                 else if(state == 1){
                     $(".btn-size-up").css("background","")
-                    $(".modal-item").css("color","black")
+                    $(".modal-price]").css("color","black")
                     totalprice -= 1000;
                     document.querySelector('.modal-price').textContent = `${totalprice}원`;
                     state = 0;
