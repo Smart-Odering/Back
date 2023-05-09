@@ -1,7 +1,6 @@
 {
   "name": "smart-ordering",
   "version": "1.0.0",
-  "type": "module",
   "description": "#test",
   "main": "app.js",
   "bin": {
