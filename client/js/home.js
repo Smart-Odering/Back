@@ -58,7 +58,7 @@ function renderHome(categoryName) {
                 }
                 else if(state == 1){
                     $(".btn-size-up").css("background","")
-                    $(".modal-price]").css("color","black")
+                    $(".modal-price").css("color","black")
                     totalprice -= 1000;
                     document.querySelector('.modal-price').textContent = `${totalprice}원`;
                     state = 0;
