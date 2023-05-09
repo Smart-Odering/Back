@@ -41,7 +41,7 @@ function renderHome(categoryName) {
             const imgSrc = $(`#${this.id} .menu-img`).attr("src");
             const name = $(`#${this.id} .menu-title`).text();
             const price = $(`#${this.id} .menu-price`).text();
-            var totalprice = 0;
+            var totalprice = Number(price);
             var state = 0;
             $(".modal-img").attr("src", imgSrc);
             $(".modal-title").text(name);
@@ -51,13 +51,13 @@ function renderHome(categoryName) {
                 if(state == 0){
                     console.log("size up click")
                     $(".btn-size-up").css("background","tomato")
-                    totalprice = Number(price) + 1000;
+                    totalprice += 1000;
                     document.querySelector('.modal-price').textContent = `${totalprice}원`;
                     state = 1;
                 }
                 else if(state == 1){
                     $(".btn-size-up").css("background","")
-                    totalprice = Number(price) - 1000;
+                    totalprice -= 1000;
                     document.querySelector('.modal-price').textContent = `${totalprice}원`;
                     state = 0;
                 }
