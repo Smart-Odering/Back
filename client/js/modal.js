@@ -9,6 +9,9 @@ $(function(){
     //모달 취소 누를시
     $(".modal-item .btn-close").on("click",function(){
         $(".menu-modal-container").removeClass("active");
+        state = 0;
+        $(".btn-size-up").css("background","")
+        $(".modal-price").css("color","black")
     });
     $(".btn-size-up").on("click",function(){
         if(state == 0){
