@@ -67,6 +67,16 @@ function changeCategory(categoryName){
         element.classList.remove('btn-active');
     });
     document.querySelector(`#${categoryName}.tab-list`).classList.add('btn-active');
+    if(categoryName == "dessert"){
+        $("#size-up").css("visibility","hidden");
+        $("#size-up").css("height","0px");
+    }
+    else{
+        $("#size-up").css("visibility","visible");
+        $("#size-up").css("height","");
+    }
+        
+
 }
 
 menuList.addEventListener('click', (e) => {
@@ -79,12 +89,4 @@ menuList.addEventListener('click', (e) => {
     $(".modal-title").text(menuname);
     $(".modal-price").text(price+'원');
     $(".menu-modal-container").addClass("active");
-
-    $('.menu-tab #dessert').on("click",function(){
-        if(state == 0){
-            $(".modal-price").css("color","orangered")
-            totalprice = Number(price);
-            document.querySelector('.modal-price').textContent = `${totalprice}원`;
-            state = 0;
-}})
   });
