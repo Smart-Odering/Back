@@ -1,8 +1,9 @@
 "use strict";
 
 import {menuname, price} from './home.js';
+import footerRender from './footer.js';
 
-var totalprice = 0;
+export var totalprice = 0;
 var state = 0;
 
 $(function(){
@@ -29,10 +30,14 @@ $(function(){
         }
     });
     $(".btn-order").on("click",function(){
-        $(".modal-title").val();
-        console.log($(".modal-title").val())
         console.log(menuname)
         console.log(totalprice)
+        if(totalprice == 0){
+            totalprice = Number(price);
+        }
+        var selectmenu = [menuname, String(totalprice)];
+        footerRender(selectmenu);
+        $(".menu-modal-container").removeClass("active");
     });
 });
 
