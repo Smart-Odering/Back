@@ -1,5 +1,9 @@
 "use strict";
 
+const menuList = document.querySelector('.menu-list');
+export var menuname = null;
+export var price = null;
+
 jQuery(document).ready(function() {
     $('.menu-tab #coffee').on("click", () => {
         changeCategory("coffee")
@@ -16,9 +20,6 @@ jQuery(document).ready(function() {
 });
 
 renderHome("coffee");
-
-var menuname = null;
-var price = null;
 
 function renderHome(categoryName) {
     const req = {
@@ -38,17 +39,6 @@ function renderHome(categoryName) {
         $(".menu-list").empty();
         res.forEach(element => {
             createMenuHtml(element);
-        });
-        $(".menu-item").on("click",function(){
-            console.log(this);
-            var imgSrc = $(`#${this.id} .menu-img`).attr("src");
-            menuname = $(`#${this.id} .menu-title`).text();
-            price = $(`#${this.id} .menu-price`).text();
-
-            $(".modal-img").attr("src", imgSrc);
-            $(".modal-title").text(menuname);
-            $(".modal-price").text(price+'원');
-            $(".menu-modal-container").addClass("active");
         });
     })
     .catch((err) => {
@@ -79,7 +69,15 @@ function changeCategory(categoryName){
     document.querySelector(`#${categoryName}.tab-list`).classList.add('btn-active');
 }
 
-export const home = {
-    menuname,
-    price,
-}
+
+menuList.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) return;
+    var imgSrc = $(`#${e.target.id} .menu-img`).attr("src");
+    menuname = $(`#${e.target.id} .menu-title`).text();
+    price = $(`#${e.target.id} .menu-price`).text();
+
+    $(".modal-img").attr("src", imgSrc);
+    $(".modal-title").text(menuname);
+    $(".modal-price").text(price+'원');
+    $(".menu-modal-container").addClass("active");
+  });
