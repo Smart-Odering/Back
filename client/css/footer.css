@@ -126,7 +126,8 @@
   }
   
   .total-price {
-    font-size: 2rem;
+    font-size: 1.3rem;
+    color: rgb(203,48,48);
   }
   
   .pay-modal-container {
