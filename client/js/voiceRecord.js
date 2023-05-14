@@ -33,7 +33,7 @@ $(document).ready(function(){
                 clipcontainer.appendChild(audio);
 
                 const blob = new Blob(chunks, {
-                    'type': 'audio/mp3 codecs=opus'
+                    'type': 'audio/wav codecs=opus'
                 });
 
                 // chunks 초기화 (초기화 하지 않으면 녹음 내용이 누적 저장됨)
