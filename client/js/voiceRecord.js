@@ -1,7 +1,6 @@
+var fileAbsPath = "C:/Users/KMD/Downloads/voiceRecord.mp3";
+
 $(document).ready(function(){
-    const record = document.getElementById('record');
-    const stop = document.getElementById('stop');
-    const soundClips = document.getElementById('sound-clips');
 
     if(navigator.mediaDevices){
         var constraints = {
@@ -14,36 +13,25 @@ $(document).ready(function(){
         .then(stream => {
             const mediaRecorder = new MediaRecorder(stream);
 
-            // 녹음 버튼 클릭했을 때
-            record.mousedown = () => {
+            // 마이크 버튼 클릭 시
+            $(".record").mousedown(function(){
                 mediaRecorder.start(); //녹음 시작
-            };
+            });
 
 
-            // 정지 버튼 눌렀을 때
-            record.mouseup = () => {
+            // 마이크 버튼 클릭 해제 시
+            $(".record").mouseup(function(){
                 mediaRecorder.stop(); // 녹음 정지
-            };
+            });
 
             mediaRecorder.onstop = e => {
-                // (1) <audio> 태그 담을 컨테이너 객체 생성
                 const clipcontainer = document.createElement('article');                    
 
-                // (2) audio 객체 생성 및 속성 설정
                 const audio = document.createElement('audio');    
                 audio.setAttribute('controls', '');
 
-                // (3) 컨테이너에 audio 연결
                 clipcontainer.appendChild(audio);
 
-                // <div>에  <audio> 태그 출력
-                // 이전에 녹음할 때 추가한 childNode가 존재한다면 제거하고
-                if(soundClips.hasChildNodes())
-                    soundClips.removeChild(soundClips.childNodes[0]);
-                //추가
-                soundClips.appendChild(clipcontainer);
-
-                // chunks에 저장된 녹음 데이터를  audio 양식으로 설정
                 const blob = new Blob(chunks, {
                     'type': 'audio/mp3 codecs=opus'
                 });
@@ -56,7 +44,7 @@ $(document).ready(function(){
                 audio.src = audioURL;
 
 
-                // (4) 녹음 내용을 파일로 저장
+                // 녹음 내용을 파일로 저장
                 // 파일명
                 const clipName = "voiceRecord"
                 const a = document.createElement('a');
@@ -68,7 +56,7 @@ $(document).ready(function(){
                 };
 
 
-                // 녹음 시작 상태가 되면 chunks에   녹음 데이터 저장
+                // 녹음 시작 상태가 되면 chunks에 녹음 데이터 저장
                 mediaRecorder.ondataavailable = e => {
                     chunks.push(e.data);
                 };
