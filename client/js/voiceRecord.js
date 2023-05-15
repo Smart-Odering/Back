@@ -1,69 +1,41 @@
-var fileAbsPath = "C:/Users/KMD/Downloads/voiceRecord.mp3";
+
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 $(document).ready(function(){
+    let recognition = new SpeechRecognition();
+    recognition.interimResults = true;
+    recognition.lang = 'ko-KR';
 
-    if(navigator.mediaDevices){
-        var constraints = {
-                audio:true
-        }
+    // let makeNewTextContent = function() {
+    //     p = document.createElement('p');
+    //     document.querySelector('.words').appendChild(p);
+    // };
 
-        let chunks = []; // 녹음 데이터 저장하기 위한 변수
+    const store = {
+        texts : ''
+    };
 
-        navigator.mediaDevices.getUserMedia(constraints)
-        .then(stream => {
-            const mediaRecorder = new MediaRecorder(stream);
+    $(".record").mousedown(function(){
+        recognition.start(); //음성인식 시작
+    });
 
-            // 마이크 버튼 클릭 시
-            $(".record").mousedown(function(){
-                mediaRecorder.start(); //녹음 시작
-            });
+    // recognition.onstart = function() {
+    //     makeNewTextContent(); // 음성 인식 시작시마다 새로운 문단을 추가한다.
+    // };
 
+    $(".record").mouseup(function(){
+        recognition.stop(); // 녹음 정지
+    });
 
-            // 마이크 버튼 클릭 해제 시
-            $(".record").mouseup(function(){
-                mediaRecorder.stop(); // 녹음 정지
-            });
+    // recognition.onend = function() {
+    //     recognition.start();
+    // };
 
-            mediaRecorder.onstop = e => {
-                const clipcontainer = document.createElement('article');                    
+    recognition.onresult = function(e) {
+        store.texts = Array.from(e.results)
+            .map(results => results[0].transcript).join("");
 
-                const audio = document.createElement('audio');    
-                audio.setAttribute('controls', '');
-
-                clipcontainer.appendChild(audio);
-
-                const blob = new Blob(chunks, {
-                    'type': 'audio/wav codecs=opus'
-                });
-
-                // chunks 초기화 (초기화 하지 않으면 녹음 내용이 누적 저장됨)
-                chunks = [];
-
-                // audio 소스 지정
-                const audioURL = URL.createObjectURL(blob);
-                audio.src = audioURL;
-
-
-                // 녹음 내용을 파일로 저장
-                // 파일명
-                const clipName = "voiceRecord"
-                const a = document.createElement('a');
-                clipcontainer.appendChild(a);
-                a.href = audio.src;
-
-                a.download = clipName;
-                a.click();
-                };
-
-
-                // 녹음 시작 상태가 되면 chunks에 녹음 데이터 저장
-                mediaRecorder.ondataavailable = e => {
-                    chunks.push(e.data);
-                };
-
-        })
-        .catch(err => {
-            console.log("오류 발생 : " + err)
-        })
-    }
+        console.log(store.texts)
+    };
 });
+
