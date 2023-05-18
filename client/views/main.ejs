@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/menu-section.css">
     <link rel="stylesheet" href="/css/reset.css">
-    <script src="/js/voiceRecord.js"></script>
+    <link rel="stylesheet" href="/css/stt-modal.css">
+    <!-- <script src="/js/voiceRecord.js"></script> -->
     <script src="/js/home.js" type="module"></script>
     <script src="/js/order-modal.js" type="module"></script>
     <script src="/js/pay-modal.js" type="module"></script>
     <script src="/js/footer.js" type="module"></script>
+    <script src="/js/stt-modal.js" type="module"></script>
     <script type="text/javascript"></script>
   </head>
 
@@ -116,6 +118,24 @@
           </div>
         </div>
       </div>
+      <!-- 음성인식 모달 영역 -->
+      <div class="stt-modal-container modal-invisible">
+        <div class="stt-modal">
+          <h3 class="stt-modal-heading">음성인식 진행 중</h3>
+
+          <div class="stt-recog-container">
+            <ul class="stt-recog">
+            </ul>
+            <div class="loading"></div>
+          </div>
+
+          <div>
+            <button class="stt-cancel-button">취 소</button>
+          </div>
+        </div>
+      </div>
+
+
     </footer>
   <!-- Code injected by live-server -->
 <script>

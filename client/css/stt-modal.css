@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+
+.stt-modal-container {
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 200vh;
+    background: rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    display: flex;
+  }
+  
+  .modal-visible {
+    opacity: 1;
+    z-index: 99;
+  }
+  
+  .modal-invisible {
+    opacity: 0;
+    z-index: -10;
+  }
+
+  .stt-modal {
+    transform: translate(0, -100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+    margin-top: 100px;
+    background: #fff;
+    border: 2px solid gray;
+    border-radius: 10px;
+  }
+  
+  .stt-modal-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(27,60,53);
+    margin: 15px;
+  }
+
+  .stt-recog {
+    background: #fff;
+    min-height: 200px;
+    border: 0;
+    border-radius: 10px;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .stt-recog-text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 20px;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+  }
+
+  .loading 
+  {
+    margin: 10px;
+  } 
+
+
+  .stt-cancel-button {
+    background: #645c5c;
+    margin: 10px;
+    padding-left: 5%;
+    width: 40%;
+    height: 80px;
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 15px;
+  }
+
+  
