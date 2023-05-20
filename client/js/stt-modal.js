@@ -38,9 +38,18 @@ const LoadingImage = (gif) => {
 $recordBtn.onclick = () => {
     $recordBtn.classList.replace('record', 'record-active');
     $sttModalDisplay.classList.replace('modal-invisible', 'modal-visible');
-    recogText = '시원한 음료 추천해줘';
-    sttRender(recogText);
+    // STT
+    fetch("http://localhost:3001/stt")
+    .then(response => response.json())
+    .then(data => {
+        // 데이터 처리 로직
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
     LoadingImage("./res/Spinner.gif");
+
 };
 
 // 결제 모달에서 취소 시 모달창 close
