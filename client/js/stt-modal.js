@@ -45,7 +45,7 @@ $recordBtn.onclick = () => {
         // 데이터 처리 로직
         console.log(data);
         sttRender(data);
-        LoadingImage("./res/Spinner.gif");
+        setTimeout(LoadingImage, 1000, "./res/Spinner.gif");
     })
     .catch(error => {
         console.error('Error:', error);
