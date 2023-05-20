@@ -44,12 +44,12 @@ $recordBtn.onclick = () => {
     .then(data => {
         // 데이터 처리 로직
         console.log(data);
+        sttRender(data);
+        LoadingImage("./res/Spinner.gif");
     })
     .catch(error => {
         console.error('Error:', error);
     });
-    LoadingImage("./res/Spinner.gif");
-
 };
 
 // 결제 모달에서 취소 시 모달창 close
