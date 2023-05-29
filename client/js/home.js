@@ -1,6 +1,9 @@
 "use strict";
 
 const menuList = document.querySelector('.menu-list');
+const sttRecog = document.querySelector('.stt-recog');
+
+//홈화면 메뉴 관련 변수
 export var menuname = null;
 export var price = null;
 
@@ -79,6 +82,7 @@ function changeCategory(categoryName){
 
 }
 
+//홈화면에서 메뉴 클릭시 이뤄지는 이벤트
 menuList.addEventListener('click', (e) => {
     if (e.target === e.currentTarget) return;
     var imgSrc = $(`#${e.target.id} .menu-img`).attr("src");
@@ -90,3 +94,17 @@ menuList.addEventListener('click', (e) => {
     $(".modal-price").text(price+'원');
     $(".menu-modal-container").addClass("active");
   });
+
+//음성 인식 후 메뉴 추천에서 메뉴 클릭시 이뤄지는 이벤트
+sttRecog.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) return;
+    console.log(e.target.id)
+    var imgSrc = $(`#${e.target.id} .menu-img`).attr("src");
+    menuname = $(`#${e.target.id} .menu-title`).text();
+    price = $(`#${e.target.id} .menu-price`).text();
+
+    $(".modal-img").attr("src", imgSrc);
+    $(".modal-title").text(menuname);
+    $(".modal-price").text(price+'원');
+    $(".menu-modal-container").addClass("active");
+});

@@ -22,6 +22,7 @@ def stt():
             recogResult = r.recognize_google(audio, language='ko-KR')
             print('음성변환 : ' + recogResult)
         except sr.UnknownValueError:
+            recogResult = "죄송하지만 이해하지 못했어요. \n 다시 말씀해주세요."
             print('오디오를 이해할 수 없습니다.')
         except sr.RequestError as e:
             print(f'에러가 발생하였습니다. 에러원인 : {e}')

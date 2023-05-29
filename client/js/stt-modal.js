@@ -5,10 +5,13 @@ const $sttModalDisplay = document.querySelector('.stt-modal-container');
 const $sttCancelBtn = document.querySelector('.stt-cancel-button');
 const $sttModalHeading = document.querySelector('.stt-modal-heading');
 
-var recogText = null;
-var gif = null;
+//음성인식, 메뉴추천 관련 변수
 var recommendData = {};
 var recogMenuHtml = null;
+
+//추천 메뉴 주문 모달창 관련 변수
+export var sttMenuname = null;
+export var sttPrice = null;
 
 //음성인식 텍스트 렌더링
 const sttRender = (recogText) => {
