@@ -93,7 +93,7 @@ class BERTDataset(Dataset):
 
 ## 학습 모델 로드
 PATH = '/home/ubuntu/smart-ordering/python-server/data/'
-model = torch.load(PATH + 'KoBERT_smart_odering.pt')  # 전체 모델을 통째로 불러옴, 클래스 선언 필수
+model = torch.load(PATH + 'KoBERT_smart_odering.pt',map_location=device)  # 전체 모델을 통째로 불러옴, 클래스 선언 필수
 model.load_state_dict(torch.load(PATH + 'model_state_dict.pt',map_location=device))  # state_dict를 불러 온 후, 모델에 저장
 
 tokenizer = KoBERTTokenizer.from_pretrained('skt/kobert-base-v1')
