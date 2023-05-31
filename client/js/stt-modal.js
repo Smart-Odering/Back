@@ -73,13 +73,13 @@ $recordBtn.onclick = () => {
     // STT
     fetch("http://0.0.0.0:3001/stt")
     .then(response => response.json())
-    .then(data => {
-        // 데이터 처리 로직
-        console.log(data);
-        sttRender(data);
-        setTimeout(LoadingImage, 1000, "./res/Spinner.gif");
-        setTimeout(menuRecommend, 2000, recommendData);
-    })
+    // .then(data => {
+    //     // 데이터 처리 로직
+    //     console.log(data);
+    //     sttRender(data);
+    //     setTimeout(LoadingImage, 1000, "./res/Spinner.gif");
+    //     setTimeout(menuRecommend, 2000, recommendData);
+    // })
     .catch(error => {
         console.error('Error:', error);
     });
