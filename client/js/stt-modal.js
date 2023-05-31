@@ -68,7 +68,7 @@ $recordBtn.onclick = () => {
     recommendData['price'] = "4500";
     console.log(recommendData)
     // STT
-    fetch("http://localhost:3001/stt")
+    fetch("http://0.0.0.0:3001/stt")
     .then(response => response.json())
     .then(data => {
         // 데이터 처리 로직
