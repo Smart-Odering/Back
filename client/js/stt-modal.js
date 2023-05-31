@@ -62,28 +62,45 @@ const menuRecommend = (recommendData) => {
 };
 
 // 음성인식 모달 띄우기 관련 이벤트
-$recordBtn.onclick = () => {
+$recordBtn.addEventListener('mousedown', function() {
     $recordBtn.classList.replace('record', 'record-active');
-    $sttModalDisplay.classList.replace('modal-invisible', 'modal-visible');
-    recommendData['id'] = "0";
-    recommendData['image'] = "ice_americano.jpg";
-    recommendData['name_kor'] = "아이스 아메리카노";
-    recommendData['price'] = "4500";
-    console.log(recommendData)
-    // STT
-    fetch("http://0.0.0.0:3001/stt")
-    .then(response => response.json())
-    // .then(data => {
-    //     // 데이터 처리 로직
-    //     console.log(data);
-    //     sttRender(data);
-    //     setTimeout(LoadingImage, 1000, "./res/Spinner.gif");
-    //     setTimeout(menuRecommend, 2000, recommendData);
-    // })
+    fetch("http://0.0.0.0:3001/record")
+    .then()
     .catch(error => {
         console.error('Error:', error);
     });
-};
+});
+
+$recordBtn.addEventListener('mouseup', function() {
+    fetch("http://0.0.0.0:3001/stt")
+    .then()
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+// $recordBtn.addEventListener('mouseup', function() {
+//     $recordBtn.classList.replace('record', 'record-active');
+//     $sttModalDisplay.classList.replace('modal-invisible', 'modal-visible');
+//     recommendData['id'] = "0";
+//     recommendData['image'] = "ice_americano.jpg";
+//     recommendData['name_kor'] = "아이스 아메리카노";
+//     recommendData['price'] = "4500";
+//     console.log(recommendData)
+//     // STT
+//     fetch("http://0.0.0.0:3001/record")
+//     .then(response => response.json())
+//     // .then(data => {
+//     //     // 데이터 처리 로직
+//     //     console.log(data);
+//     //     sttRender(data);
+//     //     setTimeout(LoadingImage, 1000, "./res/Spinner.gif");
+//     //     setTimeout(menuRecommend, 2000, recommendData);
+//     // })
+//     .catch(error => {
+//         console.error('Error:', error);
+//     });
+// });
 
 // 결제 모달에서 취소 시 모달창 close
 $sttCancelBtn.onclick = () => {

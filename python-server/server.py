@@ -9,15 +9,21 @@ app = Flask(__name__)
 # CORS(app, resources={r'*': {'origins': ['http://localhost:3001']}})
 CORS(app)
 
+@app.route("/record", methods=['GET'])
+def record():
+    try:
+        subprocess.check_output("arecord --format=S16_LE --duration=5 --rate=16000 --file-type=raw out.wav &", shell=True)
+
+    except Exception as e:
+        print(e)
+
 @app.route("/stt", methods=['GET'])
 def stt():
     # params = request.get_json()
     # print("받은 Json 데이터 ", params)
     #recogResult = None
     try:
-        subprocess.check_output("arecord --format=S16_LE --duration=5 --rate=16000 --file-type=raw out.wav", shell=True)
-        
-        time.sleep(5)
+        subprocess.check_output("pkill arecord", shell=True)
         
         subprocess.check_output("aplay --format=S16_LE --rate=16000 out.wav", shell=True)
         # r = sr.Recognizer()
