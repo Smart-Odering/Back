@@ -29,7 +29,7 @@ class BERTClassifier(nn.Module):
         self.classifier = nn.Linear(hidden_size , num_classes)
         if dr_rate:
             self.dropout = nn.Dropout(p=dr_rate)
-    
+
     def gen_attention_mask(self, token_ids, valid_length):
         attention_mask = torch.zeros_like(token_ids)
         for i, v in enumerate(valid_length):
@@ -38,7 +38,7 @@ class BERTClassifier(nn.Module):
 
     def forward(self, token_ids, valid_length, segment_ids):
         attention_mask = self.gen_attention_mask(token_ids, valid_length)
-        
+
         _, pooler = self.bert(input_ids = token_ids, token_type_ids = segment_ids.long(), attention_mask = attention_mask.float().to(token_ids.device))
         if self.dr_rate:
             out = self.dropout(pooler)
@@ -92,7 +92,7 @@ class BERTDataset(Dataset):
         return len(self.dataset)
 
 ## 학습 모델 로드
-PATH = './server/src/routes/py/'
+PATH = '/home/ubuntu/smart-ordering/python-server/data/'
 model = torch.load(PATH + 'KoBERT_smart_odering.pt')  # 전체 모델을 통째로 불러옴, 클래스 선언 필수
 model.load_state_dict(torch.load(PATH + 'model_state_dict.pt'))  # state_dict를 불러 온 후, 모델에 저장
 
@@ -110,7 +110,7 @@ def predict(predict_sentence):
 
     another_test = BERTDataset(dataset_another, tokenizer, max_len, True, False)
     test_dataloader = torch.utils.data.DataLoader(another_test, batch_size=batch_size)
-    
+
     model.eval()
 
     for batch_id, (token_ids, valid_length, segment_ids, label) in enumerate(test_dataloader):
