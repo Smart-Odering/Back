@@ -13,8 +13,6 @@ from transformers.optimization import get_cosine_schedule_with_warmup
 
 from scipy.stats import rankdata
 
-device = torch.device("cpu")
-
 class BERTClassifier(nn.Module):
     def __init__(self,
                 bert,
@@ -39,7 +37,8 @@ class BERTClassifier(nn.Module):
     def forward(self, token_ids, valid_length, segment_ids):
         attention_mask = self.gen_attention_mask(token_ids, valid_length)
 
-        _, pooler = self.bert(input_ids = token_ids, token_type_ids = segment_ids.long(), attention_mask = attention_mask.float().to(token_ids.device))
+        # _, pooler = self.bert(input_ids = token_ids, token_type_ids = segment_ids.long(), attention_mask = attention_mask.float().to(token_ids.device))
+        _, pooler = self.bert(input_ids = token_ids, token_type_ids = segment_ids.long(), attention_mask = attention_mask.float().to())
         if self.dr_rate:
             out = self.dropout(pooler)
         return self.classifier(out)
