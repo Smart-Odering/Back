@@ -28,7 +28,7 @@ def stt():
             print(f'에러가 발생하였습니다. 에러원인 : {e}')
                 
     except Exception as e:
-        pass
+        print(e)
     
 
     response = recogResult
@@ -37,4 +37,4 @@ def stt():
 
 
 if __name__ == "__main__":
-    app.run(debug=False, host='0.0.0.0', port=3001)
+    app.run(debug=True, host='0.0.0.0', port=3001)
