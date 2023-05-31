@@ -15,7 +15,7 @@ def stt():
     try:
         r = sr.Recognizer()
         
-        with sr.Microphone(sample_rate=44100) as source:
+        with sr.Microphone(sample_rate = 48000, device_index = 2, chunk_size = 1024) as source:
             print('음성을 입력하세요.')
             audio = r.listen(source)
         try:
