@@ -4,6 +4,7 @@ from flask_cors import CORS
 import speech_recognition as sr
 import time
 import subprocess
+import soundfile
 
 app = Flask(__name__)
 # CORS(app, resources={r'*': {'origins': ['http://localhost:3001']}})
@@ -12,7 +13,9 @@ CORS(app)
 @app.route("/record", methods=['GET'])
 def record():
     try:
-        subprocess.check_output("arecord --format=S16_LE --rate=16000 --file-type=raw out.wav &", shell=True)
+        subprocess.check_output("arecord --format=S16_LE --rate=44100 --file-type=raw out.wav &", shell=True)
+        data, samplerate = soundfile.read('out.wav')
+        soundfile.write('new.wav', data, samplerate, subtype='PCM_16')
 
     except Exception as e:
         print(e)
