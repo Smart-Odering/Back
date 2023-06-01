@@ -21,33 +21,32 @@ def record():
 def stt():
     # params = request.get_json()
     # print("받은 Json 데이터 ", params)
-    #recogResult = None
+    recogResult = None
     try:
         subprocess.check_output("pkill arecord", shell=True)
+        #subprocess.check_output("aplay --format=S16_LE --rate=16000 out.wav", shell=True)
         
-        subprocess.check_output("aplay --format=S16_LE --rate=16000 out.wav", shell=True)
-        # r = sr.Recognizer()
+        r = sr.Recognizer()
+        audio_file = sr.AudioFile('./out.wav')
         
-        # with sr.Microphone(sample_rate = 48000, device_index = 2, chunk_size = 1024) as source:
-        #     print('음성을 입력하세요.')
-        #     audio = r.listen(source)
-        # try:
-        #     recogResult = r.recognize_google(audio, language='ko-KR')
-        #     print('음성변환 : ' + recogResult)
-        # except sr.UnknownValueError:
-        #     recogResult = "죄송하지만 이해하지 못했어요. \n 다시 말씀해주세요."
-        #     print('오디오를 이해할 수 없습니다.')
-        # except sr.RequestError as e:
-        #     print(f'에러가 발생하였습니다. 에러원인 : {e}')
+        with audio_file as source:
+            print('음성을 입력하세요.')
+            audio = r.record(source)
+        try:
+            recogResult = r.recognize_google(audio, language='ko-KR')
+            print('음성변환 : ' + recogResult)
+        except sr.UnknownValueError:
+            recogResult = "죄송하지만 이해하지 못했어요. \n 취소 후 다시 말씀해주세요."
+            print('오디오를 이해할 수 없습니다.')
+        except sr.RequestError as e:
+            print(f'에러가 발생하였습니다. 에러원인 : {e}')
                 
     except Exception as e:
         print(e)
     
+    response = recogResult
 
-    #response = recogResult
-
-    #return jsonify(response)
-
+    return jsonify(response)
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=3001)
