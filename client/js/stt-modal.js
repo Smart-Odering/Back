@@ -6,7 +6,7 @@ const $sttCancelBtn = document.querySelector('.stt-cancel-button');
 const $sttModalHeading = document.querySelector('.stt-modal-heading');
 
 //음성인식, 메뉴추천 관련 변수
-//var recommendData = {};
+var orderText = null;
 var recogMenuHtml = null;
 
 //추천 메뉴 주문 모달창 관련 변수
@@ -87,6 +87,7 @@ $recordBtn.addEventListener('mouseup', function() {
     .then(data => {
         // 데이터 처리 로직
         sttRender(data);
+        orderText = data
     })
     .catch(error => {
         console.error('Error:', error);
@@ -94,7 +95,7 @@ $recordBtn.addEventListener('mouseup', function() {
 
     //메뉴 추천
     const req = {
-        recommend: recommendName
+        order: orderText
     };
     console.log(JSON.stringify(req));
 
@@ -124,5 +125,6 @@ $sttCancelBtn.onclick = () => {
     $sttModalDisplay.classList.replace('modal-visible', 'modal-invisible');
     sttRender();
     LoadingImage();
+    orderText = null
     $sttModalHeading.textContent = "음성인식 진행 중"
 };
