@@ -6,7 +6,7 @@ const $sttCancelBtn = document.querySelector('.stt-cancel-button');
 const $sttModalHeading = document.querySelector('.stt-modal-heading');
 
 //음성인식, 메뉴추천 관련 변수
-var recommendData = {};
+//var recommendData = {};
 var recogMenuHtml = null;
 
 //추천 메뉴 주문 모달창 관련 변수
@@ -71,33 +71,50 @@ $recordBtn.addEventListener('mousedown', function() {
     });
 });
 
-// $recordBtn.addEventListener('mouseup', function() {
-//     fetch("http://0.0.0.0:3001/stt")
-//     .then()
-//     .catch(error => {
-//         console.error('Error:', error);
-//     });
-// });
-
 $recordBtn.addEventListener('mouseup', function() {
     $recordBtn.classList.replace('record-active', 'record');
     $sttModalDisplay.classList.replace('modal-invisible', 'modal-visible');
-    recommendData['id'] = "0";
-    recommendData['image'] = "ice_americano.jpg";
-    recommendData['name_kor'] = "아이스 아메리카노";
-    recommendData['price'] = "4500";
-    console.log(recommendData)
+
+    // recommendData['id'] = "0";
+    // recommendData['image'] = "ice_americano.jpg";
+    // recommendData['name_kor'] = "아이스 아메리카노";
+    // recommendData['price'] = "4500";
+    // console.log(recommendData)
+
     // STT
     fetch("http://0.0.0.0:3001/stt")
     .then(response => response.json())
     .then(data => {
         // 데이터 처리 로직
         sttRender(data);
-        setTimeout(LoadingImage, 1000, "./res/Spinner.gif");
-        setTimeout(menuRecommend, 3000, recommendData);
     })
     .catch(error => {
         console.error('Error:', error);
+    });
+
+    //메뉴 추천
+    const req = {
+        recommend: recommendName
+    };
+    console.log(JSON.stringify(req));
+
+    fetch("http://13.125.248.167:3000/recommend", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(req),
+    })
+    .then((res) => res.json())
+    .then((res) => {
+        $(".stt-recog").empty();
+        LoadingImage("./res/Spinner.gif");
+        res.forEach(element => {
+            menuRecommend(element);
+        });
+    })
+    .catch((err) => {
+        console.error(err);
     });
 });
 
