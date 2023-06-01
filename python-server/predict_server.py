@@ -11,7 +11,7 @@ def predict_menu():
     print(args["order"])
     result = predict(args["order"])
     response = {
-        "result": result[0]
+        "result": result
     }
     return jsonify(response)
 
