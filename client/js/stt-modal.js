@@ -81,7 +81,7 @@ $recordBtn.addEventListener('mousedown', function() {
 
 $recordBtn.addEventListener('mouseup', function() {
     $recordBtn.classList.replace('record-active', 'record');
-    $sttModalDisplay.classList.replace('modal-visible', 'modal-invisible');
+    $sttModalDisplay.classList.replace('modal-invisible', 'modal-visible');
     recommendData['id'] = "0";
     recommendData['image'] = "ice_americano.jpg";
     recommendData['name_kor'] = "아이스 아메리카노";
