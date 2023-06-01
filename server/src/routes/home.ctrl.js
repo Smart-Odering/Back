@@ -32,34 +32,25 @@ const process = {
     recommend : async (req, res) => {
         const client = req.body;
         try{
-            // const spawn = require("child_process").spawn 
-            // const process = spawn('python',[pyPath, client.category] )
-            // process.stdout.on('data', function(data) { 
-            //     const response = data.toString();
-            //     console.log(response.split(","));
-            //     return res.send(response);
-            // }) 
-            const userInput = "아이스 음료";
             const options = {
-                uri: 'http://127.0.0.1:3001/predict_menu',
+                uri: 'http://0.0.0.0:3002/predict_menu',
                 method: 'POST',
-                body: { 'user_input': userInput },
+                body: { 'order': client.order },
                 json: true
             };
             request(options)
-            .then(result => {
-                const summary = result
-                res.send(summary);
+            .then( async result => {
+                const summary = result.result;
+                let response = [];
+                for (const menuID of summary){
+                    const menuInfo = await Menu.getMenu(menuID);
+                    response.push(menuInfo)
+                }
+                res.send(response);
             })
-            // fetch
-            // .then(response => response.json())
-            // .then(data => {
-            //     // 데이터 처리 로직
-            //     console.log(data);
-            // })
-            // .catch(error => {
-            //     console.error('Error:', error);
-            // });
+            .catch(error => {
+                logger.error('Error:', error);
+            });
         } catch(err){
             logger.error(`POST /recommend Response: ${err}`);
         }
