@@ -24,7 +24,7 @@ const process = {
             logger.info(`categoryId = ${categoryId}`);
             const response = await Menu.getMenuByCategory(categoryId);
             logger.info(`POST /home Success!`);
-            return res.send(response[0]);
+            return res.send(response);
         } catch(err) {
             logger.error(`POST /home Response: ${err}`);
         }
@@ -46,7 +46,7 @@ const process = {
                     const menuInfo = await Menu.getMenu(menuID);
                     response.push(menuInfo)
                 }
-                res.send(response);
+                res.send(response[0]);
             })
             .catch(error => {
                 logger.error('Error:', error);
