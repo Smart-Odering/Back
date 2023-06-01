@@ -44,9 +44,9 @@ const process = {
                 let response = [];
                 for (const menuID of summary){
                     const menuInfo = await Menu.getMenu(menuID);
-                    response.push(menuInfo)
+                    response.push(menuInfo[0])
                 }
-                res.send(response[0]);
+                res.send(response);
             })
             .catch(error => {
                 logger.error('Error:', error);
