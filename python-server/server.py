@@ -28,10 +28,10 @@ def stt():
     try:
         subprocess.check_output("pkill arecord", shell=True)
         #subprocess.check_output("aplay --format=S16_LE --rate=16000 out.wav", shell=True)
-        
+
         r = sr.Recognizer()
         audio_file = sr.AudioFile('./out.wav')
-        
+
         with audio_file as source:
             print('음성을 입력하세요.')
             audio = r.record(source)
@@ -43,10 +43,10 @@ def stt():
             print('오디오를 이해할 수 없습니다.')
         except sr.RequestError as e:
             print(f'에러가 발생하였습니다. 에러원인 : {e}')
-                
+
     except Exception as e:
         print(e)
-    
+
     response = recogResult
 
     return jsonify(response)

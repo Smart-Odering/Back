@@ -1,5 +1,6 @@
 from flask import Flask, request, json, jsonify
 from flask_cors import CORS
+from predict import predict
 
 app = Flask(__name__)
 CORS(app)
@@ -7,10 +8,11 @@ CORS(app)
 @app.route("/predict_menu", methods=['POST'])
 def predict_menu():
     args = request.get_json(force=True)
-    print(args)
+    print(args["order"])
+    result = predict(args["order"])
     response = {
-        "result":"success"
+        "result": result
     }
     return jsonify(response)
 
-app.run(debug=True, host='0.0.0.0', port=3001)
+app.run(debug=False, host='0.0.0.0', port=3002)

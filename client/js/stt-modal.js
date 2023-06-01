@@ -16,7 +16,7 @@ export var sttPrice = null;
 //음성인식 텍스트 렌더링
 const sttRender = (recogText) => {
     let recogHtml = '';
-  
+
     if (recogText != null) {
         recogHtml = `<p class="stt-recog-text"><span>
         ${recogText}</span>
@@ -53,7 +53,7 @@ const menuRecommend = (recommendData) => {
                     <span class="menu-price">${recommendData.price}</span>
                 </figure>
             </li>
-            ` 
+            `
         $sttRecog.innerHTML += recogMenuHtml;
     }
     else{

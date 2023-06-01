@@ -14,7 +14,7 @@ from transformers.optimization import get_cosine_schedule_with_warmup
 from scipy.stats import rankdata
 
 device = torch.device("cpu")
-
+bertmodel = BertModel.from_pretrained('skt/kobert-base-v1', return_dict=False)
 class BERTClassifier(nn.Module):
     def __init__(self,
                 bert,
@@ -92,12 +92,12 @@ class BERTDataset(Dataset):
         return len(self.dataset)
 
 ## 학습 모델 로드
-PATH = '/home/ubuntu/smart-ordering/python-server/data/'
-model = torch.load(PATH + 'KoBERT_smart_odering.pt',map_location=device)  # 전체 모델을 통째로 불러옴, 클래스 선언 필수
+# PATH = '/home/ubuntu/smart-ordering/python-server/data/'
+PATH = './python-server/'
+model = BERTClassifier(bertmodel,  dr_rate=0.5).to(device)
+# model = torch.load(PATH + 'KoBERT_smart_odering.pt',map_location=device)  # 전체 모델을 통째로 불러옴, 클래스 선언 필수
 model.load_state_dict(torch.load(PATH + 'model_state_dict.pt',map_location=device))  # state_dict를 불러 온 후, 모델에 저장
-
 tokenizer = KoBERTTokenizer.from_pretrained('skt/kobert-base-v1')
-bertmodel = BertModel.from_pretrained('skt/kobert-base-v1', return_dict=False)
 vocab = nlp.vocab.BERTVocab.from_sentencepiece(tokenizer.vocab_file, padding_token='[PAD]')
 
 max_len = 64
@@ -139,6 +139,7 @@ def predict(predict_sentence):
                     # test_eval.append(MenuLists[j])
                     test_eval.append(j)
         print(test_eval)
+        return test_eval
 
 if __name__ =='__main__' :
     # command = sys.argv[1]
