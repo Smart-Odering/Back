@@ -16,7 +16,7 @@ export var sttPrice = null;
 //음성인식 텍스트 렌더링
 const sttRender = (recogText) => {
     let recogHtml = '';
-  
+
     if (recogText != null) {
         recogHtml = `<p class="stt-recog-text"><span>
         ${recogText}</span>
@@ -53,7 +53,7 @@ const menuRecommend = (recommendData) => {
                     <span class="menu-price">${recommendData.price}</span>
                 </figure>
             </li>
-            ` 
+            `
         $sttRecog.innerHTML += recogMenuHtml;
     }
     else{
@@ -71,36 +71,35 @@ $recordBtn.addEventListener('mousedown', function() {
     });
 });
 
-$recordBtn.addEventListener('mouseup', function() {
-    fetch("http://0.0.0.0:3001/stt")
-    .then()
-    .catch(error => {
-        console.error('Error:', error);
-    });
-});
-
 // $recordBtn.addEventListener('mouseup', function() {
-//     $recordBtn.classList.replace('record', 'record-active');
-//     $sttModalDisplay.classList.replace('modal-invisible', 'modal-visible');
-//     recommendData['id'] = "0";
-//     recommendData['image'] = "ice_americano.jpg";
-//     recommendData['name_kor'] = "아이스 아메리카노";
-//     recommendData['price'] = "4500";
-//     console.log(recommendData)
-//     // STT
-//     fetch("http://0.0.0.0:3001/record")
-//     .then(response => response.json())
-//     // .then(data => {
-//     //     // 데이터 처리 로직
-//     //     console.log(data);
-//     //     sttRender(data);
-//     //     setTimeout(LoadingImage, 1000, "./res/Spinner.gif");
-//     //     setTimeout(menuRecommend, 2000, recommendData);
-//     // })
+//     fetch("http://0.0.0.0:3001/stt")
+//     .then()
 //     .catch(error => {
 //         console.error('Error:', error);
 //     });
 // });
+
+$recordBtn.addEventListener('mouseup', function() {
+    $recordBtn.classList.replace('record-active', 'record');
+    $sttModalDisplay.classList.replace('modal-visible', 'modal-invisible');
+    recommendData['id'] = "0";
+    recommendData['image'] = "ice_americano.jpg";
+    recommendData['name_kor'] = "아이스 아메리카노";
+    recommendData['price'] = "4500";
+    console.log(recommendData)
+    // STT
+    fetch("http://0.0.0.0:3001/stt")
+    .then(response => response.json())
+    .then(data => {
+        // 데이터 처리 로직
+        sttRender(data);
+        setTimeout(LoadingImage, 1000, "./res/Spinner.gif");
+        setTimeout(menuRecommend, 3000, recommendData);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
 
 // 결제 모달에서 취소 시 모달창 close
 $sttCancelBtn.onclick = () => {
