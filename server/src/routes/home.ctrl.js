@@ -33,7 +33,7 @@ const process = {
         const client = req.body;
         try{
             const options = {
-                uri: 'http://0.0.0.0:3002/predict_menu',
+                uri: 'http://127.0.0.1:3002/predict_menu',
                 method: 'POST',
                 body: { 'order': client.order },
                 json: true
