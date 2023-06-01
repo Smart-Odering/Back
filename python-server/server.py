@@ -13,9 +13,9 @@ CORS(app)
 @app.route("/record", methods=['GET'])
 def record():
     try:
-        subprocess.check_output("arecord --format=S16_LE --rate=44100 --file-type=raw out.wav &", shell=True)
-        data, samplerate = soundfile.read('out.wav')
-        soundfile.write('new.wav', data, samplerate, subtype='PCM_16')
+        subprocess.check_output("arecord --format=S16_LE --rate=44100 --file-type=wav out.wav &", shell=True)
+        # data, samplerate = soundfile.read('./out.wav')
+        # soundfile.write('new.wav', data, samplerate, subtype='PCM_16')
 
     except Exception as e:
         print(e)
