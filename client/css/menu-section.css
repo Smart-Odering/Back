@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .menu-list {
     width: 470px;
-    height: 395px;
+    height: 375px;
     padding: 15px;
     display: flex;
     align-items: flex-start;
