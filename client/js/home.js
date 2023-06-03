@@ -99,9 +99,9 @@ menuList.addEventListener('click', (e) => {
 sttRecog.addEventListener('click', (e) => {
     if (e.target === e.currentTarget) return;
     console.log(e.target.id)
-    var imgSrc = $(`#${e.target.id} .menu-img`).attr("src");
-    menuname = $(`#${e.target.id} .menu-title`).text();
-    price = $(`#${e.target.id} .menu-price`).text();
+    var imgSrc = $(`.stt-modal #${e.target.id} .menu-img`).attr("src");
+    menuname = $(`.stt-modal #${e.target.id} .menu-title`).text();
+    price = $(`.stt-modal #${e.target.id} .menu-price`).text();
 
     $(".modal-img").attr("src", imgSrc);
     $(".modal-title").text(menuname);
