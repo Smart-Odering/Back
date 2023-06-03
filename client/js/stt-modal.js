@@ -64,8 +64,8 @@ const menuRecommend = (recommendData) => {
 // 음성인식 모달 띄우기 관련 이벤트
 $recordBtn.addEventListener('mousedown', function() {
     $recordBtn.classList.replace('record', 'record-active');
-    fetch("http://127.0.0.1:3001/record".{
-        method: "GET"
+    fetch("http://127.0.0.1:3001/record", {
+        method: "GET",
     })
     .catch(error => {
         console.error('Error:', error);
