@@ -106,12 +106,12 @@ $recordBtn.addEventListener('touchend', function() {
         })
         .then((res) => res.json())
         .then((res) => {
-            console.log(res);
-            // $(".stt-recog").empty();
-            // LoadingImage("./res/Spinner.gif");
-            // res.forEach(element => {
-            //     menuRecommend(element);
-            // });
+            // console.log(res);
+            $(".stt-recog").empty();
+            LoadingImage("./res/Spinner.gif");
+            res.forEach(element => {
+                menuRecommend(element);
+            });
         })
         .catch((err) => {
             console.error(err);
