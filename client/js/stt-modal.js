@@ -62,7 +62,7 @@ const menuRecommend = (recommendData) => {
 };
 
 // 음성인식 모달 띄우기 관련 이벤트
-$recordBtn.addEventListener('mousedown', function() {
+$recordBtn.addEventListener('touchstart', function() {
     $recordBtn.classList.replace('record', 'record-active');
     fetch("http://127.0.0.1:3001/record".{
         method: "GET"
@@ -72,7 +72,7 @@ $recordBtn.addEventListener('mousedown', function() {
     });
 });
 
-$recordBtn.addEventListener('mouseup', function() {
+$recordBtn.addEventListener('touchend', function() {
     $recordBtn.classList.replace('record-active', 'record');
     $sttModalDisplay.classList.replace('modal-invisible', 'modal-visible');
 
