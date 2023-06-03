@@ -64,9 +64,10 @@ const menuRecommend = (recommendData) => {
 // 음성인식 모달 띄우기 관련 이벤트
 $recordBtn.addEventListener('touchstart', function() {
     $recordBtn.classList.replace('record', 'record-active');
-    fetch("http://127.0.0.1:3001/record".{
-        method: "GET"
+    fetch("http://127.0.0.1:3001/record", {
+        method: "GET",
     })
+    .then()
     .catch(error => {
         console.error('Error:', error);
     });
@@ -89,7 +90,7 @@ $recordBtn.addEventListener('touchend', function() {
     .then(response => response.json())
     .then(data => {
         // 데이터 처리 로직
-        sttRender(data);
+        sttRender(data.result);
         orderText = data
     })
     .catch(error => {
