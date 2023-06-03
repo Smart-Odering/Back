@@ -6,7 +6,6 @@ const $sttCancelBtn = document.querySelector('.stt-cancel-button');
 const $sttModalHeading = document.querySelector('.stt-modal-heading');
 
 //음성인식, 메뉴추천 관련 변수
-var orderText = null;
 var recogMenuHtml = null;
 
 //추천 메뉴 주문 모달창 관련 변수
@@ -81,7 +80,7 @@ $recordBtn.addEventListener('touchend', function() {
     // recommendData['name_kor'] = "아이스 아메리카노";
     // recommendData['price'] = "4500";
     // console.log(recommendData)
-
+    let orderText = null;
     // STT
     fetch("http://0.0.0.0:3001/stt",{
         method: "GET"
