@@ -89,8 +89,6 @@ $recordBtn.addEventListener('touchend', function() {
     .then(response => response.json())
     .then(data => {
         // 데이터 처리 로직
-        console.log("***********")
-        console.log(data);
         sttRender(data.result);
         orderText = data
     })
@@ -100,7 +98,7 @@ $recordBtn.addEventListener('touchend', function() {
 
     //메뉴 추천
     const req = {
-        order: orderText
+        "order": orderText
     };
     console.log(JSON.stringify(req));
 
