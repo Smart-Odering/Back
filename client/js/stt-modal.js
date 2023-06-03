@@ -67,7 +67,6 @@ $recordBtn.addEventListener('touchstart', function() {
     fetch("http://0.0.0.0:3001/record", {
         method: "GET",
     })
-    .then()
     .catch(error => {
         console.error('Error:', error);
     });
@@ -90,6 +89,8 @@ $recordBtn.addEventListener('touchend', function() {
     .then(response => response.json())
     .then(data => {
         // 데이터 처리 로직
+        console.log("***********")
+        console.log(data);
         sttRender(data.result);
         orderText = data
     })
