@@ -67,6 +67,7 @@ $recordBtn.addEventListener('mousedown', function() {
     fetch("http://127.0.0.1:3001/record", {
         method: "GET",
     })
+    .then()
     .catch(error => {
         console.error('Error:', error);
     });
@@ -89,7 +90,7 @@ $recordBtn.addEventListener('mouseup', function() {
     .then(response => response.json())
     .then(data => {
         // 데이터 처리 로직
-        sttRender(data);
+        sttRender(data.result);
         orderText = data
     })
     .catch(error => {
