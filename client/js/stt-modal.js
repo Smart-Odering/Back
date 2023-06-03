@@ -90,35 +90,35 @@ $recordBtn.addEventListener('touchend', function() {
         // 데이터 처리 로직
         sttRender(data.result);
         orderText = data
+
+        //메뉴 추천
+        const req = {
+            "order": orderText
+        };
+        console.log(JSON.stringify(req));
+
+        fetch("/recommend", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(req),
+        })
+        .then((res) => res.json())
+        .then((res) => {
+            console.log(res);
+            // $(".stt-recog").empty();
+            // LoadingImage("./res/Spinner.gif");
+            // res.forEach(element => {
+            //     menuRecommend(element);
+            // });
+        })
+        .catch((err) => {
+            console.error(err);
+        });
     })
     .catch(error => {
         console.error('Error:', error);
-    });
-
-    //메뉴 추천
-    const req = {
-        "order": orderText
-    };
-    console.log(JSON.stringify(req));
-
-    fetch("/recommend", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(req),
-    })
-    .then((res) => res.json())
-    .then((res) => {
-        console.log(res);
-        // $(".stt-recog").empty();
-        // LoadingImage("./res/Spinner.gif");
-        // res.forEach(element => {
-        //     menuRecommend(element);
-        // });
-    })
-    .catch((err) => {
-        console.error(err);
     });
 });
 
