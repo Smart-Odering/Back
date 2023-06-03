@@ -53,7 +53,10 @@ const menuRecommend = (recommendData) => {
                 </figure>
             </li>
             `
-        $sttRecog.innerHTML += recogMenuHtml;
+        $sttRecog.insertAdjacentHTML(
+            'beforeend',
+            recogMenuHtml
+        );
     }
     else{
         $sttModalHeading.textContent = "추천 메뉴가 없습니다.";
