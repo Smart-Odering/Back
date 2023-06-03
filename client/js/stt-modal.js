@@ -40,8 +40,8 @@ const LoadingImage = (gif) => {
 };
 
 const menuRecommend = (recommendData) => {
-    sttRender();
-    LoadingImage();
+    // sttRender();
+    // LoadingImage();
     if (recommendData != null){
         $sttModalHeading.textContent = "아래 메뉴를 추천합니다!";
         recogMenuHtml =
