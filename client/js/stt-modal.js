@@ -100,25 +100,27 @@ $recordBtn.addEventListener('touchend', function() {
         };
         console.log(JSON.stringify(req));
 
-        fetch("/recommend", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(req),
-        })
-        .then((res) => res.json())
-        .then((res) => {
-            console.log(res);
-            $(".stt-recog").empty();
-            LoadingImage("./res/Spinner.gif");
-            res.forEach(element => {
-                menuRecommend(element);
+        setTimeout(() =>{
+            fetch("/recommend", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(req),
+            })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                $(".stt-recog").empty();
+                LoadingImage("./res/Spinner.gif");
+                res.forEach(element => {
+                    menuRecommend(element);
+                });
+            })
+            .catch((err) => {
+                console.error(err);
             });
-        })
-        .catch((err) => {
-            console.error(err);
-        });
+        }, 1000)
     })
     .catch(error => {
         console.error('Error:', error);
