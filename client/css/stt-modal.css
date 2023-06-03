@@ -85,6 +85,7 @@
     background: #eee;
     position: relative;
     overflow-y: scroll;
+    justify-content: center;
   }
   .stt-recog .menu-item {
     width: 130px;
