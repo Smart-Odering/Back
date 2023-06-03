@@ -26,6 +26,7 @@ def stt():
     # print("받은 Json 데이터 ", params)
     recogResult = None
     try:
+        time.sleep(1)
         subprocess.check_output("pkill arecord", shell=True)
         #subprocess.check_output("aplay --format=S16_LE --rate=16000 out.wav", shell=True)
 
