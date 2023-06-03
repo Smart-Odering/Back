@@ -93,7 +93,7 @@ $recordBtn.addEventListener('touchend', function() {
 
         //메뉴 추천
         const req = {
-            "order": orderText
+            "order": orderText.result
         };
         console.log(JSON.stringify(req));
 
