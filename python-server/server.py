@@ -47,6 +47,7 @@ def stt():
     except Exception as e:
         print(e)
 
+    print(type(recogResult))
     response = recogResult
 
     return jsonify(response)
