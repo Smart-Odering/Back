@@ -99,7 +99,7 @@ $recordBtn.addEventListener('mouseup', function() {
     };
     console.log(JSON.stringify(req));
 
-    fetch("http://13.125.248.167:3000/recommend", {
+    fetch("/recommend", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -108,11 +108,12 @@ $recordBtn.addEventListener('mouseup', function() {
     })
     .then((res) => res.json())
     .then((res) => {
-        $(".stt-recog").empty();
-        LoadingImage("./res/Spinner.gif");
-        res.forEach(element => {
-            menuRecommend(element);
-        });
+        console.log(res);
+        // $(".stt-recog").empty();
+        // LoadingImage("./res/Spinner.gif");
+        // res.forEach(element => {
+        //     menuRecommend(element);
+        // });
     })
     .catch((err) => {
         console.error(err);
