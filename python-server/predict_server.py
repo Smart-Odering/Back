@@ -10,6 +10,7 @@ def predict_menu():
     args = request.get_json(force=True)
     print(args["order"])
     result = predict(args["order"])
+    print(result)
     response = {
         "result": result
     }

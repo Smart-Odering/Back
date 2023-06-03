@@ -106,7 +106,7 @@ $recordBtn.addEventListener('touchend', function() {
         })
         .then((res) => res.json())
         .then((res) => {
-            // console.log(res);
+            console.log(res);
             $(".stt-recog").empty();
             LoadingImage("./res/Spinner.gif");
             res.forEach(element => {
