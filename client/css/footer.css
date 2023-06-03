@@ -4,6 +4,8 @@
     display: grid;
     margin: 0 auto 15px;
     padding: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 470px;
     height: 221px;
     grid-template-columns: repeat(6, 1fr);
