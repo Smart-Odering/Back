@@ -64,7 +64,7 @@ const menuRecommend = (recommendData) => {
 // 음성인식 모달 띄우기 관련 이벤트
 $recordBtn.addEventListener('touchstart', function() {
     $recordBtn.classList.replace('record', 'record-active');
-    fetch("http://127.0.0.1:3001/record", {
+    fetch("http://0.0.0.0:3001/record", {
         method: "GET",
     })
     .then()
@@ -84,7 +84,7 @@ $recordBtn.addEventListener('touchend', function() {
     // console.log(recommendData)
 
     // STT
-    fetch("http://127.0.0.1:3001/stt",{
+    fetch("http://0.0.0.0:3001/stt",{
         method: "GET"
     })
     .then(response => response.json())
